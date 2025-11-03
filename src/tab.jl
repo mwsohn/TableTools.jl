@@ -322,6 +322,10 @@ function interleave(df::AbstractDataFrame)
     return e
 end
 
+rowpct(na) = 100 .* na ./ sum(na, dims=2)
+colpct(na) = 100 .* na ./ sum(na, dims=1)
+cellpct(na) = 100 .* na ./ sum(na)
+
 """
     chi2(m::AbstractMatrix{Integer})
 

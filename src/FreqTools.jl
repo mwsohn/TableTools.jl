@@ -1,4 +1,4 @@
-module TableTools
+module FreqTools
 
 ################################################################################
 ##
@@ -6,7 +6,7 @@ module TableTools
 ##
 ################################################################################
 
-using DataFrames, Stella, FreqTables, NamedArrays, FreqTables,
+using DataFrames, Stella, FreqTables, NamedArrays, 
     Printf, CategoricalArrays, PrettyTables, Reexport, Statistics
 
 ##############################################################################

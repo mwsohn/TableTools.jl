@@ -1,4 +1,4 @@
-name = "TableTools"
+name = "FreqTools"
 uuid = "fb344015-2583-4870-9d87-af59fc8caa54"
 
 [deps]
@@ -13,6 +13,15 @@ TableMetadataTools = "9ce81f87-eacc-4366-bf80-b621a3098ee2"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 
 [compat]
+julia = ">=1.6"
+DataFrames = ">=1.7"
+PrettyTables = ">=2.0"
+Printf = ">=0.5"
+FreqTables = ">=1.0"
+NamedArrays = ">=0.9"
+CategoricalArrays = ">=0.5"
+TableMetadataTools = ">=0.1"
+Reexport = ">=1.0"
 
 [extras]
 

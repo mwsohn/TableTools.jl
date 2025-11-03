@@ -23,7 +23,7 @@ NamedArrays = ">=0.9"
 CategoricalArrays = ">=0.5"
 TableMetadataTools = ">=0.1"
 Reexport = ">=1.0"
-Stella = ">=0.0.0"
+
 
 [extras]
 

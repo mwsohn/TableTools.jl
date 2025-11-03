@@ -27,7 +27,7 @@ sort - set it to true to sort the output table by the order of frequency with th
 summarize - specify a "continuous" variable to produce means, standard deviations, and counts in a one-way or two-way tables
 
 ## Example
-"""
+```
 julia> using RDatasets
 
 julia> lbw = dataset("COUNT","lbw");
@@ -47,12 +47,12 @@ julia> describe(lbw)
    8 │ UI           0.148148       0      0.0      1         0  Int64
    9 │ FTV          0.793651       0      0.0      6         0  Int64
   10 │ BWt       2944.29         709   2977.0   4990         0  Int64
-"""
+```
 
 ### 1. One-way frequency table
 
 #### 1.a Frequencies
-"""
+
 julia> tab(lbw, :Low)
 ───────┬───────────────────────────
    Low │ Counts   Percent  Cum Pct 

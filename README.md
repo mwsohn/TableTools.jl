@@ -52,7 +52,7 @@ julia> describe(lbw)
 ### 1. One-way frequency table
 
 #### 1.a Frequencies
-
+```
 julia> tab(lbw, :Low)
 ───────┬───────────────────────────
    Low │ Counts   Percent  Cum Pct 
@@ -62,10 +62,10 @@ julia> tab(lbw, :Low)
 ───────┼───────────────────────────
  Total │    189   100.000  100.000
 ───────┴───────────────────────────
-"""
+```
 
 #### 1.b Summarize birthweight by smoking status
-"""
+```
 julia> tab(lbw, :Smoke, summarize = :BWt)
 ───────┬────────────────────────
  Smoke │   N      Mean    StDev 
@@ -75,7 +75,7 @@ julia> tab(lbw, :Smoke, summarize = :BWt)
 ───────┼────────────────────────
  Total │ 189  2944.286  729.016
 ───────┴────────────────────────
-"""
+```
 
 ### 2. Two-way frequency table
 

@@ -254,11 +254,22 @@ function _tab2summarize(indf, var1, var2, sumvar; maxrows=-1, maxcols=20, skipmi
     rtotal = combine(groupby(df2, var1), sumvar .=> [mean, std] .=> [:mean, :sd])
     ctotal = combine(groupby(df2, var2), sumvar .=> [mean, std] .=> [:mean, :sd])
 
+    function eqtest(v1, v2)
+        if ismissing(v1) && ismissing(v2)
+            return true
+        elseif ismissing(v1) || ismissing(v2)
+            return false
+        elseif v1 == v2
+            return true
+        end
+        return false
+    end
+
     for i = 1:nrows
         r = i + (i - 1) * 2
         for j = 1:ncols
 
-            dfr = findfirst(x -> x[var1] == rcvals[1][i] && x[var2] == rcvals[2][j], eachrow(e))
+            dfr = findfirst(x -> eqtest(x[var1], rcvals[1][i]) && eqtest(x[var2], rcvals[2][j]), eachrow(e))
             if dfr == nothing # no data for this group
                 omat[r:r+2, j] .= [missing, missing, 0]
                 continue

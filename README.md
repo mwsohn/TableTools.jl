@@ -1,14 +1,7 @@
 # FreqTools
 
 A package that produces frequency tables and associated summary tables. It mostly is
-a wrapper for the excellent `FreqTables.jl` package. `tab` is the main function. There are
-other utility functions that are exported:
-
-rowpct - takes a NamedArray as the argument from `freqtable` function and outputs row percentages
-
-colpct - takes a NamedArray as the argument from `freqtable` function and outputs column percentages
-
-cellpct - takes a NamedArray as the argument from `freqtable` function and outputs cell percentages
+a wrapper for the excellent `FreqTables.jl` package. `tab` is the main function. 
 
 ## Installation
 

@@ -28,9 +28,8 @@ function tab(na::NamedArray; skipmissing=true, pct=:rce)
         _tab2(na; skipmissing=skipmissing, pct=pct)
     elseif len == 3
         _tab3(na; skipmissing=skipmissing, pct=pct)
-    else
-        error("Crosstabs for more than 3 variables are not currently supported.")
     end
+    throw(ArgumentError("Crosstabs for more than 3 variables are not currently supported."))
 end
 function tab(indf, var::Union{Symbol,String}; skipmissing=true, sort=false, summarize=nothing)
     if in(string(var), names(indf)) == false
@@ -98,7 +97,7 @@ function tabi(a::AbstractArray)
     if length(size(a)) == 2 && all(x -> x >= 2, a)
         Stella._tab2(NamedArray(a))
     end
-    error("Input array must be 2x2 and have at least two levels on each dimension.")
+    throw(ArgumentError("Input array must be 2x2 and have at least two levels on each dimension."))
 end
 
 function _tab1(na::NamedArray; sort=false)
@@ -321,10 +320,6 @@ function interleave(df::AbstractDataFrame)
     end
     return e
 end
-
-rowpct(na) = 100 .* na ./ sum(na, dims=2)
-colpct(na) = 100 .* na ./ sum(na, dims=1)
-cellpct(na) = 100 .* na ./ sum(na)
 
 """
     chi2(m::AbstractMatrix{Integer})

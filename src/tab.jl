@@ -95,7 +95,7 @@ end
 
 function tabi(a::AbstractArray)
     if length(size(a)) == 2 && all(x -> x >= 2, a)
-        Stella._tab2(NamedArray(a))
+        _tab2(NamedArray(a))
     end
     throw(ArgumentError("Input array must be 2x2 and have at least two levels on each dimension."))
 end
@@ -198,7 +198,7 @@ function _tab2(na::NamedArray; maxrows=-1, maxcols=20, pct=:rce)
 
     testarray = na.array[rz[1:end-1], cz[1:end-1]]
     if size(testarray, 1) > 1 && size(testarray, 2) > 1
-        (statistic, dof, pval) = Stella.chi2(testarray)
+        (statistic, dof, pval) = chi2(testarray)
         println("Pearson chi-square = ", @sprintf("%.4f", statistic), " (", dof, "), p ",
             pval < 0.0001 ? "< 0.0001" : string("= ", round(pval, sigdigits=6)))
     end

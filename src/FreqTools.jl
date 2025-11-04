@@ -6,7 +6,7 @@ module FreqTools
 ##
 ################################################################################
 
-using DataFrames, Stella, FreqTables, NamedArrays, 
+using DataFrames, FreqTables, NamedArrays, 
     Printf, CategoricalArrays, PrettyTables, Reexport, Statistics
 
 ##############################################################################
@@ -15,7 +15,7 @@ using DataFrames, Stella, FreqTables, NamedArrays,
 ##
 ##############################################################################
 
-export tab, rowpct, colpct, cellpct
+export tab, tabi
 
 ##############################################################################
 ##

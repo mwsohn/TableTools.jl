@@ -72,6 +72,20 @@ julia> tab(lbw, :Smoke, summarize = :BWt)
 ───────┴────────────────────────
 ```
 
+#### 1.c Frequency sorted by counts
+```
+julia> tab(lbw,:Race, sort=true)
+───────┬───────────────────────────
+  Race │ Counts   Percent  Cum Pct 
+───────┼───────────────────────────
+     1 │     96    50.794   50.794
+     3 │     67    35.450   86.243
+     2 │     26    13.757  100.000
+───────┼───────────────────────────
+ Total │    189   100.000  100.000
+───────┴───────────────────────────
+```
+
 ### 2. Two-way frequency table
 
 #### 2.a Frequency table with row, column, and cell percentages (default)

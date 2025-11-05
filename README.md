@@ -1,7 +1,8 @@
 # FreqTools
 
 A package that produces frequency tables and associated summary tables. It mostly is
-a wrapper for the excellent `FreqTables.jl` package. `tab` is the main function. 
+a wrapper for the excellent `FreqTables.jl` package. `tab` is the main function. It is intended for
+interactive use and does not return any values. 
 
 ## Installation
 

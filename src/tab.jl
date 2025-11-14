@@ -12,12 +12,12 @@ ordered by the frequency by specifying `sort = true` as an option.
 
 For an one-way or two-way table, summary values (mean, standard deviation, and count) 
 of a continuous variable can be requested by specifying the variable name
-as an option `summrize = :var`.
+as an option `summarize = :var`.
 
-for a two-way table, percentages can be requested by specifying
+For a two-way table, percentages can be requested by specifying
 a `pct = :rce` option in any combination 
-where `r` indicates "row" percents, `c` "column" percents, and `e` "cell" percents.
-(default is `:rce`).
+where `r` indicates "row" percents, `c` "column" percents, and `e` "cell" percents
+(default is `:rce`). They can be use in any combination or any order.
 """
 function tab(na::NamedArray; skipmissing=true, pct=:rce)
 

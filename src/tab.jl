@@ -50,11 +50,11 @@ function tab(indf, var1::Union{Symbol,String}, var2::Union{Symbol,String}; pct=:
         return nothing
     end
     if in(string(var1), names(indf)) == false
-        println("$var1 is not found in the input DataFrame.")
+        throw(ArgumentError("$var1 is not found in the input DataFrame."))
         return nothing
     end
     if in(string(var2), names(indf)) == false
-        println("$var2 is not found in the input DataFrame.")
+        throw(ArgumentError("$var2 is not found in the input DataFrame."))
         return nothing
     end
     if summarize == nothing
@@ -67,7 +67,7 @@ function tab(indf, var1::Union{Symbol,String}, var2::Union{Symbol,String}, var3:
     pct=:rce, maxrows=-1, maxcols=20, skipmissing=true, summarize=nothing)
     for v in (var1, var2, var3)
         if in(string(v), names(indf)) == false
-            println("$v is not found in the input DataFrame.")
+            throw(ArgumentError("$v is not found in the input DataFrame."))
             return nothing
         end
     end

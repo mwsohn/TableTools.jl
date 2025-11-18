@@ -193,7 +193,7 @@ function _tab2(na::NamedArray; maxrows=-1, maxcols=20, pct=:rce)
         formatters=(v, i, _) -> (i % cnt) <= 1 ? @sprintf("%.0f", v) : @sprintf("%.3f", v),
         max_num_of_rows=maxrows,
         max_num_of_columns=maxcols,
-        hlines=vcat([0, 1], cnt == 1 ? [nrow+1,nrow+2] : [x * cnt + 1 for x in 1:(nrow+1)]),
+        hlines=vcat([0, 1], cnt == 1 ? [nrow+2,nrow+3] : [x * cnt + 1 for x in 1:(nrow+1)]),
         vlines=[1])
 
     testarray = na.array[rz[1:end-1], cz[1:end-1]]

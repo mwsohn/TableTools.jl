@@ -7,7 +7,7 @@ interactive use and does not return any values.
 ## Installation
 
 ```
-  ] add https://github.com/mwsohn/TableTools.jl
+  ] add https://github.com/mwsohn/FreqTools.jl
 ```
 
 ## Syntax
@@ -18,7 +18,7 @@ tab(::AbstractDataFrame, vars::Union{String,Symbol}...; skipmissing = true, sort
 
 skipmissing - set to `false` to include `missing` values in the frequency table
 
-sort - set it to true to sort the output table by the order of frequency with the largest category on top. It can only be used in the one-way table
+sort - set it to `true` to sort the output table by the order of frequency with the largest category on top. It can only be used in the one-way table
 
 summarize - specify a "continuous" variable to produce means, standard deviations, and counts in a one-way or two-way tables
 

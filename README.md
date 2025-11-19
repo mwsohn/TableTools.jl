@@ -136,7 +136,7 @@ Pearson chi-square = 21.7790 (2), p < 0.0001
 #### 2.b Pearson chi-square test for a matrix of counts
 
 ```
-julia> tabi([44 52 ; 16 10; 55 12])
+julia> tab([44 52 ; 16 10; 55 12])
 ───────┬───────────────────────────
  A / B │       1        2    Total 
 ───────┼───────────────────────────

@@ -12,8 +12,8 @@ interactive use and does not return any values.
 
 ## Syntax
 
-- tab(df::AbstractDataFrame, vars::Union{String,Symbol}...; skipmissing = true, sort = nothing, summarize = nothing)
-- tab(na::NamedArray)
+- tab(df::AbstractDataFrame, vars::Union{String,Symbol}...; skipmissing = true, sort = nothing, pct = :rce, summarize = nothing)
+- tab(na::NamedArray; skipmissing = true, pct = :rce)
 - tab(m::Matrix)
 
 
@@ -27,11 +27,13 @@ If a matrix of counts is used as an input, a Pearson chi-square test will be per
 
 ### Options:
 
-skipmissing - set to `false` to include `missing` values in the frequency table
+- skipmissing - set to `false` to include `missing` values in the frequency table
 
-sort - set it to `true` to sort the output table by the order of frequency with the largest category on top. It can only be used in the one-way table
+- sort - set it to `true` to sort the output table by the order of frequency with the largest category on top. It can only be used in the one-way table
 
-summarize - specify a "continuous" variable to produce means, standard deviations, and counts in a one-way or two-way tables
+- pct - set it to any combination of `r` (row), `c` (column)), and/or `e` (cell) percentages as a Symbol. For example, `:rce` will produce a table with row, column, and cell percentages (in that order) in the same table
+
+- summarize - specify a "continuous" variable to produce means, standard deviations, and counts in a one-way or two-way tables
 
 ## Example
 ```

@@ -119,7 +119,37 @@ julia> tab(lbw, :Race, :Smoke)
 Pearson chi-square = 21.7790 (2), p < 0.0001
 ```
 
-#### 2.b Frequency table with no percentages
+#### 2.b Pearson chi-square test for a matrix of counts
+
+```
+julia> tabi([44 52 ; 16 10; 55 12])
+───────┬───────────────────────────
+ A / B │       1        2    Total 
+───────┼───────────────────────────
+     1 │      44       52       96
+       │  45.833   54.167  100.000
+       │  38.261   70.270   50.794
+       │  23.280   27.513   50.794
+───────┼───────────────────────────
+     2 │      16       10       26
+       │  61.538   38.462  100.000
+       │  13.913   13.514   13.757
+       │   8.466    5.291   13.757
+───────┼───────────────────────────
+     3 │      55       12       67
+       │  82.090   17.910  100.000
+       │  47.826   16.216   35.450
+       │  29.101    6.349   35.450
+───────┼───────────────────────────
+ Total │     115       74      189
+       │  60.847   39.153  100.000
+       │ 100.000  100.000  100.000
+       │  60.847   39.153  100.000
+───────┴───────────────────────────
+Pearson chi-square = 21.7790 (2), p < 0.0001
+```
+
+#### 2.c Frequency table with no percentages
 ```
 julia> tab(lbw,:Race,:Smoke, pct = nothing )
 ──────────────┬────────────────
@@ -134,7 +164,7 @@ julia> tab(lbw,:Race,:Smoke, pct = nothing )
 Pearson chi-square = 21.7790 (2), p < 0.0001
 ```
 
-#### 2.c Frequency table with row percentages alone
+#### 2.d Frequency table with row percentages alone
 ```
 julia> tab(lbw, :Race, :Smoke, pct = :r)
 ──────────────┬─────────────────────────
@@ -155,7 +185,7 @@ julia> tab(lbw, :Race, :Smoke, pct = :r)
 Pearson chi-square = 21.7790 (2), p < 0.0001
 ```
 
-#### 2.d Frequency table with column percentages alone
+#### 2.e Frequency table with column percentages alone
 ```
 julia> tab(lbw, :Race, :Smoke, pct = :c)
 ──────────────┬───────────────────────────
@@ -175,7 +205,7 @@ julia> tab(lbw, :Race, :Smoke, pct = :c)
 ──────────────┴───────────────────────────
 Pearson chi-square = 21.7790 (2), p < 0.0001
 ```
-#### 2.e Frequency table with cell percentages alone
+#### 2.f Frequency table with cell percentages alone
 ```
 julia> tab(lbw, :Race, :Smoke, pct = :e)
 ──────────────┬─────────────────────────
@@ -196,7 +226,7 @@ julia> tab(lbw, :Race, :Smoke, pct = :e)
 Pearson chi-square = 21.7790 (2), p < 0.0001
 ```
 
-#### 2.e Frequency table with row and column percentages
+#### 2.g Frequency table with row and column percentages
 ```
 julia> tab(lbw, :Race, :Smoke, pct = :rc)
 ──────────────┬───────────────────────────
@@ -221,7 +251,7 @@ julia> tab(lbw, :Race, :Smoke, pct = :rc)
 Pearson chi-square = 21.7790 (2), p < 0.0001
 ```
 
-#### 2.f Frequency table with summary values (mean, standard deviation, and count) of another variable
+#### 2.h Frequency table with summary values (mean, standard deviation, and count) of another variable
 ```
 julia> tab(lbw, :Race, :Smoke, summarize = :BWt)
 ──────────────┬──────────────────────────────

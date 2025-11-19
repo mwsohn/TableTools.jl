@@ -13,6 +13,7 @@ TableMetadataTools = "9ce81f87-eacc-4366-bf80-b621a3098ee2"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 StatsAPI = "82ae8749-77ed-4fe6-ae5f-f523153014b0"
+HypothesisTests = "09f84164-cd44-5f33-b23f-e6b0d136a0d5"
 
 [compat]
 julia = ">=1.6"
@@ -26,6 +27,7 @@ TableMetadataTools = ">=0.1"
 Reexport = ">=1.0"
 Distributions = ">=0.2"
 StatsAPI = ">=1.0"
+HypothesisTests = ">=0.11"
 
 [extras]
 

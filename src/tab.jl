@@ -95,9 +95,9 @@ function tab(indf, var1::Union{Symbol,String}, var2::Union{Symbol,String}, var3:
         end
     end
 end
-function tab(a::AbstractArray)
+function tab(a::AbstractArray; pct=:rce)
     if length(size(a)) == 2 && all(x -> x >= 2, a)
-        _tab2(NamedArray(a))
+        _tab2(NamedArray(a), pct=pct)
     else
         throw(ArgumentError("Input array must be 2x2 and have at least two levels on each dimension."))
     end

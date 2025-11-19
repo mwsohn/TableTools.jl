@@ -12,9 +12,18 @@ interactive use and does not return any values.
 
 ## Syntax
 
-tab(df::AbstractDataFrame, vars::Union{String,Symbol}...; skipmissing = true, sort = nothing, summarize = nothing)
-tab(na::NamedArray)
-tab(m::Matrix)
+- tab(df::AbstractDataFrame, vars::Union{String,Symbol}...; skipmissing = true, sort = nothing, summarize = nothing)
+- tab(na::NamedArray)
+- tab(m::Matrix)
+
+
+Produce an one-way or two-way frequency table from a DataFrame or a NamedArray obtained from
+freqtable function. `tab` is mainly a wrapper for the excellent `FreqTables` package.
+
+A NamedArray returned from `freqtable` function in the `FreqTables.jl` package can be used
+as an input to the `tab` function.
+
+A matrix of counts is used as an input, a Pearson chi-square test will be performed. 
 
 ### Options:
 

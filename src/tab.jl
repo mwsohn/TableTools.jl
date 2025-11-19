@@ -205,7 +205,7 @@ function _tab2(na::NamedArray; maxrows=-1, maxcols=20, pct=:rce)
 
     if size(testarray) == (2, 2) && all(x -> x > 0, testarray) # 2x2 array
         println("Fisher's exact test = ", @sprintf("%.4f",
-            pvalue(HypothesisTests.FisherExactTest((testarray')...))))
+            StatsAPI.pvalue(HypothesisTests.FisherExactTest((testarray')...))))
     end
 end
 

@@ -96,8 +96,9 @@ end
 function tabi(a::AbstractArray)
     if length(size(a)) == 2 && all(x -> x >= 2, a)
         _tab2(NamedArray(a))
+    else
+        throw(ArgumentError("Input array must be 2x2 and have at least two levels on each dimension."))
     end
-    throw(ArgumentError("Input array must be 2x2 and have at least two levels on each dimension."))
 end
 
 function _tab1(na::NamedArray; sort=false)

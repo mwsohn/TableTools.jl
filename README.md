@@ -23,7 +23,7 @@ freqtable function. `tab` is mainly a wrapper for the excellent `FreqTables` pac
 A NamedArray returned from `freqtable` function in the `FreqTables.jl` package can be used
 as an input to the `tab` function.
 
-A matrix of counts is used as an input, a Pearson chi-square test will be performed. 
+If a matrix of counts is used as an input, a Pearson chi-square test will be performed. 
 
 ### Options:
 

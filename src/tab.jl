@@ -1,6 +1,7 @@
 """
-    tab(df::DataFrame,vars::Symbol...; maxrows = -1, maxcols = 20, sort = true, skipmissing=true)
-    tab(na::NamedArray; maxrows = -1, maxcols = 20)
+    tab(df::DataFrame,vars::Symbol...; sort = true, skipmissing=true)
+    tab(na::NamedArray)
+    tab(m::Matrix)
 
 Produce an one-way or two-way frequency table from a DataFrame or a NamedArray obtained from
 freqtable function. `tab` is mainly a wrapper for the excellent `FreqTables` package.
@@ -18,6 +19,8 @@ For a two-way table, percentages can be requested by specifying
 a `pct = :rce` option in any combination 
 where `r` indicates "row" percents, `c` "column" percents, and `e` "cell" percents
 (default is `:rce`). They can be use in any combination or any order.
+
+If input is a matrix of counts, a Pearson chi-square test will be performed. 
 """
 function tab(na::NamedArray; skipmissing=true, pct=:rce)
 
@@ -92,15 +95,13 @@ function tab(indf, var1::Union{Symbol,String}, var2::Union{Symbol,String}, var3:
         end
     end
 end
-
-function tabi(a::AbstractArray)
+function tab(a::AbstractArray)
     if length(size(a)) == 2 && all(x -> x >= 2, a)
         _tab2(NamedArray(a))
     else
         throw(ArgumentError("Input array must be 2x2 and have at least two levels on each dimension."))
     end
 end
-
 function _tab1(na::NamedArray; sort=false)
 
     # do not output rows with zeros

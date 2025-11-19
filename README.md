@@ -12,7 +12,9 @@ interactive use and does not return any values.
 
 ## Syntax
 
-tab(::AbstractDataFrame, vars::Union{String,Symbol}...; skipmissing = true, sort = nothing, summarize = nothing)
+tab(df::AbstractDataFrame, vars::Union{String,Symbol}...; skipmissing = true, sort = nothing, summarize = nothing)
+tab(na::NamedArray)
+tab(m::Matrix)
 
 ### Options:
 

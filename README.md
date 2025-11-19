@@ -31,7 +31,8 @@ If a matrix of counts is used as an input, a Pearson chi-square test will be per
 
 - sort - set it to `true` to sort the output table by the order of frequency with the largest category on top. It can only be used in the one-way table
 
-- pct - set it to any combination of `r` (row), `c` (column)), and/or `e` (cell) percentages as a Symbol. For example, `:rce` will produce a table with row, column, and cell percentages (in that order) in the same table
+- pct - set it to any combination of `r` (row), `c` (column), and/or `e` (cell) as a Symbol to request
+row, column, and cell percentages. For example, `:rce` will produce a table with row, column, and cell percentages (in that order) in the same table
 
 - summarize - specify a "continuous" variable to produce means, standard deviations, and counts in a one-way or two-way tables
 

@@ -17,26 +17,23 @@ interactive use and does not return any values.
 - tab(m::Matrix)
 
 
-Produce an one-way or two-way frequency table from a DataFrame or a NamedArray obtained from
-freqtable function. `tab` is mainly a wrapper for the excellent `FreqTables` package.
+Produce an one-way or two-way frequency table from a DataFrame or a NamedArray returned from
+`freqtable` function. `tab` is mainly a wrapper for the excellent `FreqTables` package.
 
-A NamedArray returned from `freqtable` function in the `FreqTables.jl` package can be used
-as an input to the `tab` function.
-
-If a matrix of counts is used as an input, a Pearson chi-square test will be performed. 
+If a matrix of counts is used as an argument, a Pearson chi-square test will be performed. 
 
 ### Options:
 
-- skipmissing - set to `false` to include `missing` values in the frequency table
+- skipmissing - set to `false` to include `missing` values in the frequency table (default = `true`)
 
-- sort - set it to `true` to sort the output table by the order of frequency with the largest category on top. It can only be used in the one-way table
+- sort - set it to `true` to sort the output table by the order of frequency with the largest category on top. It can only be used in the one-way table (default = `false`)
 
 - pct - set it to any combination of `r` (row), `c` (column), and/or `e` (cell) as a Symbol to request
-row, column, and cell percentages. For example, `:rce` will produce a table with row, column, and cell percentages (in that order) in the same table
+row, column, and cell percentages (default = `:rce`). For example, `:rce` will produce a table with row, column, and cell percentages (in that order) in the same table
 
-- summarize - specify a "continuous" variable to produce means, standard deviations, and counts in a one-way or two-way tables
+- summarize - specify a "continuous" variable to produce means, standard deviations, and counts in a one-way or two-way tables (default = `nothing`)
 
-## Example
+## Examples
 ```
 julia> using RDatasets
 

@@ -22,6 +22,8 @@ Produce an one-way or two-way frequency table from a DataFrame or a NamedArray r
 
 If a matrix of counts is used as an argument, a Pearson chi-square test will be performed. 
 
+This package reexports `FreqTables.jl`.
+
 ### Options:
 
 - skipmissing - set to `false` to include `missing` values in the frequency table (default = `true`)

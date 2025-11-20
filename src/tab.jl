@@ -333,11 +333,12 @@ function chi2(m::AbstractMatrix{T}) where {T<:Integer}
     if nrow <= 1 || ncol <= 1
         error("at least a 2x2 table is expected")
     end
-    rowsum = sum(m, dims=2)
-    colsum = sum(m, dims=1)
-    dof = (nrow - 1) * (ncol - 1)
-    e = rowsum * colsum ./ sum(m)
-    statistic = sum((m .- e) .^ 2 ./ e)
-    pvalue = Distributions.ccdf(Distributions.Chisq(dof), statistic)
-    return (statistic, dof, pvalue)
+    # rowsum = sum(m, dims=2)
+    # colsum = sum(m, dims=1)
+    # dof = (nrow - 1) * (ncol - 1)
+    # e = rowsum * colsum ./ sum(m)
+    # statistic = sum((m .- e) .^ 2 ./ e)
+    # pvalue = Distributions.ccdf(Distributions.Chisq(dof), statistic)
+    chitest = HypothesisTests.ChisqTest(m)
+    return (chitest.stat, chitest.df, pvalue(chitest))
 end

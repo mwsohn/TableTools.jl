@@ -311,29 +311,16 @@ function _tab2summarize(indf, var1, var2, sumvar; maxrows=-1, maxcols=20, skipmi
         vlines=[1])
 end
 
-function interleave(df::AbstractDataFrame)
-    var2 = propertynames(df)[2]
-    rows = sort(unique(df[!, 1]))
-    cols = sort(unique(df[!, 2]))
+# function interleave(df::AbstractDataFrame)
+#     var2 = propertynames(df)[2]
+#     rows = sort(unique(df[!, 1]))
+#     cols = sort(unique(df[!, 2]))
 
-    e = Matrix{Any}(undef, length(rows) * 3, length(cols))
-    for (i, v) in enumerate(cols)
-        df2 = filter(x -> x[var2] == v, df)
-        e[:, i] = vec(transpose(Matrix{Any}(df2[!, 3:5])))
-    end
-    return e
-end
-
-# """
-#     chi2(m::AbstractMatrix{Integer})
-
-# Returns chi squared test statistic and p-value for the test of independence.
-# """
-# function chi2(m::AbstractMatrix{T}) where {T<:Integer}
-#     (nrow, ncol) = size(m)
-#     if nrow <= 1 || ncol <= 1
-#         error("at least a 2x2 table is expected")
+#     e = Matrix{Any}(undef, length(rows) * 3, length(cols))
+#     for (i, v) in enumerate(cols)
+#         df2 = filter(x -> x[var2] == v, df)
+#         e[:, i] = vec(transpose(Matrix{Any}(df2[!, 3:5])))
 #     end
-#     c = HypothesisTests.ChisqTest(m)
-#     return (c.stat, c.df, pvalue(c))
+#     return e
 # end
+

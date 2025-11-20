@@ -339,6 +339,6 @@ function chi2(m::AbstractMatrix{T}) where {T<:Integer}
     # e = rowsum * colsum ./ sum(m)
     # statistic = sum((m .- e) .^ 2 ./ e)
     # pvalue = Distributions.ccdf(Distributions.Chisq(dof), statistic)
-    chitest = HypothesisTests.ChisqTest(m)
-    return (chitest.stat, chitest.df, pvalue(chitest))
+    c = HypothesisTests.ChisqTest(m)
+    return (c.stat, c.df, pvalue(c))
 end

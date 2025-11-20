@@ -200,14 +200,15 @@ function _tab2(na::NamedArray; maxrows=-1, maxcols=20, pct=:rce)
 
     testarray = na.array[rz[1:end-1], cz[1:end-1]]
     if size(testarray, 1) > 1 && size(testarray, 2) > 1
-        (statistic, dof, pval) = chi2(testarray)
-        println("Pearson chi-square = ", @sprintf("%.4f", statistic), " (", dof, "), p ",
+        c = ChisqTest(testarray)
+        pval = pvalue(c)
+        println("Pearson chi-square = ", @sprintf("%.4f", c.stat), " (", c.df, "), p ",
             pval < 0.0001 ? "< 0.0001" : string("= ", round(pval, sigdigits=6)))
     end
 
     if size(testarray) == (2, 2) && all(x -> x > 0, testarray) # 2x2 array
         println("Fisher's exact test = ", @sprintf("%.4f",
-            StatsAPI.pvalue(HypothesisTests.FisherExactTest((testarray')...))))
+            pvalue(HypothesisTests.FisherExactTest((testarray')...))))
     end
 end
 
@@ -323,22 +324,16 @@ function interleave(df::AbstractDataFrame)
     return e
 end
 
-"""
-    chi2(m::AbstractMatrix{Integer})
+# """
+#     chi2(m::AbstractMatrix{Integer})
 
-Returns chi squared test statistic and p-value for the test of independence.
-"""
-function chi2(m::AbstractMatrix{T}) where {T<:Integer}
-    (nrow, ncol) = size(m)
-    if nrow <= 1 || ncol <= 1
-        error("at least a 2x2 table is expected")
-    end
-    # rowsum = sum(m, dims=2)
-    # colsum = sum(m, dims=1)
-    # dof = (nrow - 1) * (ncol - 1)
-    # e = rowsum * colsum ./ sum(m)
-    # statistic = sum((m .- e) .^ 2 ./ e)
-    # pvalue = Distributions.ccdf(Distributions.Chisq(dof), statistic)
-    c = HypothesisTests.ChisqTest(m)
-    return (c.stat, c.df, pvalue(c))
-end
+# Returns chi squared test statistic and p-value for the test of independence.
+# """
+# function chi2(m::AbstractMatrix{T}) where {T<:Integer}
+#     (nrow, ncol) = size(m)
+#     if nrow <= 1 || ncol <= 1
+#         error("at least a 2x2 table is expected")
+#     end
+#     c = HypothesisTests.ChisqTest(m)
+#     return (c.stat, c.df, pvalue(c))
+# end

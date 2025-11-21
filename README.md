@@ -7,7 +7,7 @@ interactive use and does not return any values.
 ## Installation
 
 ```
-  ] add https://github.com/mwsohn/FreqTools.jl
+  ] add FreqTools
 ```
 
 ## Syntax

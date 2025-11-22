@@ -6,9 +6,8 @@ module FreqTools
 ##
 ################################################################################
 
-using DataFrames, NamedArrays, Distributions,
-    Printf, CategoricalArrays, PrettyTables, Reexport, Statistics, HypothesisTests,
-    StatsAPI
+using DataFrames, NamedArrays, Printf, CategoricalArrays, PrettyTables,
+    Reexport, Statistics, HypothesisTests, StatsAPI
 
 @reexport using FreqTables
 

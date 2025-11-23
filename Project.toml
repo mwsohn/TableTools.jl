@@ -18,7 +18,7 @@ HypothesisTests = "09f84164-cd44-5f33-b23f-e6b0d136a0d5"
 [compat]
 julia = "^1.6"
 DataFrames = "^1.7"
-FreqTables = "^1.0"
+FreqTables = "^0.1,1.0"
 NamedArrays = "^0.1,0.10"
 Printf = "^1.0"
 Statistics = "^1.0"

@@ -48,10 +48,6 @@ function tab(ivar::AbstractVector; skipmissing=true, sort=false)
     _tab1(freqtable(ivar, skipmissing=skipmissing); sort=sort)
 end
 function tab(indf, var1::Union{Symbol,String}, var2::Union{Symbol,String}; pct=:rce, maxrows=-1, maxcols=20, skipmissing=true, summarize=nothing)
-    # if summarize != nothing && isa(indf[:, summarize], CategoricalArray)
-    #     throw(ArgumentError("$summarize cannot be a CategoricalArray."))
-    #     return nothing
-    # end
     if in(string(var1), names(indf)) == false
         throw(ArgumentError("$var1 is not found in the input DataFrame."))
         return nothing

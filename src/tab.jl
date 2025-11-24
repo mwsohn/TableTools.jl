@@ -3,8 +3,8 @@
     tab(na::NamedArray)
     tab(m::Matrix)
 
-Produce an one-way or two-way frequency table from a DataFrame or a NamedArray obtained from
-freqtable function. `tab` is mainly a wrapper for the excellent `FreqTables` package.
+Produces an one-way or two-way frequency table from a DataFrame or a NamedArray returned from
+`freqtable` function. `tab` is mainly a wrapper for the excellent `FreqTables` package.
 
 Use `skipmissing = false` to obtain frequencies that include `missing` values.
 
